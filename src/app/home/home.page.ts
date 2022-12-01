@@ -5,6 +5,7 @@ import { CreateUserDto } from '../users/dto/create-user.dto';
 import { User } from '../users/users.entities';
 import { UsersService } from '../users/users.service';
 import { HomeService } from './home.service';
+import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ export class HomePage {
     private iab: InAppBrowser,
     private router: Router,
     private homeService: HomeService,
-    private userService: UsersService
+    private userService: UsersService,
+    private sanitizer: DomSanitizer,
   ) {
   }
 
@@ -79,6 +81,15 @@ export class HomePage {
     });
 
     // this.userService.getUsers2();
+  }
+
+  openUrl() {
+    let url = 'https://ionicframework.com/';
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/home');
   }
 
 }
