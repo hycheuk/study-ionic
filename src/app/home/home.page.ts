@@ -88,8 +88,8 @@ export class HomePage {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  goBack() {
-    this.router.navigateByUrl('/home');
+  goToIframePage() {
+    this.router.navigateByUrl('/iframe');
   }
 
 }

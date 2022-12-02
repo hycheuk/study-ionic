@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'message',
     loadChildren: () => import('./message/message.module').then( m => m.MessagePageModule)
   },
+  {
+    path: 'iframe',
+    loadChildren: () => import('./iframe/iframe.module').then( m => m.IframePageModule)
+  },
 ];
 
 @NgModule({
